@@ -10,11 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public String home(){
 
         return "Hello web.";
     }
-
 
 }
