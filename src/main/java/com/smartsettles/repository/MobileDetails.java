@@ -5,18 +5,20 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Created by SantoshKompally on 3/6/17.
+ * Created by SantoshKompally on 3/14/17.
  */
+
 @Repository
-public class InternetDetails {
+public class MobileDetails {
+
 
     String name;
     List<ChatMessages> chatMessages;
 
-    public InternetDetails() {
+    public MobileDetails() {
     }
 
-    public InternetDetails(String name, List<ChatMessages> chatMessages) {
+    public MobileDetails(String name, List<ChatMessages> chatMessages) {
         this.name = name;
         this.chatMessages = chatMessages;
     }
@@ -39,9 +41,11 @@ public class InternetDetails {
 
     @Override
     public String toString() {
-        return "InternetDetails{" +
+        return "MobileDetails{" +
                 "name='" + name + '\'' +
                 ", chatMessages=" + chatMessages +
                 '}';
     }
 }
+
+

@@ -3,6 +3,7 @@ package com.smartsettles.controller;
 import com.smartsettles.Service.ChatService;
 import com.smartsettles.repository.Chat;
 import com.smartsettles.repository.ChatInput;
+import com.smartsettles.repository.ChatMessages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +30,13 @@ public class ChatController {
         return chat;
     }
 
+    @RequestMapping(value = "/addChat" , method = RequestMethod.POST)
+    public boolean addChat(@RequestBody ChatMessages chatMesssages){
 
+       return  chatService.addChat(chatMesssages);
+
+
+    }
 
 
 }

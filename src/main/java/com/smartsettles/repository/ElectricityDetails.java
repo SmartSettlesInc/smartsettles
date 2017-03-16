@@ -1,23 +1,33 @@
 package com.smartsettles.repository;
 
+/**
+ * Created by SantoshKompally on 3/14/17.
+ */
+
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by SantoshKompally on 3/6/17.
- */
 @Repository
-public class InternetDetails {
+public class ElectricityDetails {
+
 
     String name;
     List<ChatMessages> chatMessages;
 
-    public InternetDetails() {
+    public ElectricityDetails() {
     }
 
-    public InternetDetails(String name, List<ChatMessages> chatMessages) {
+    public ElectricityDetails(String name, List<ChatMessages> chatMessages) {
         this.name = name;
+        this.chatMessages = chatMessages;
+    }
+
+    public List<ChatMessages> getChatMessages() {
+        return chatMessages;
+    }
+
+    public void setChatMessages(List<ChatMessages> chatMessages) {
         this.chatMessages = chatMessages;
     }
 
@@ -29,17 +39,9 @@ public class InternetDetails {
         this.name = name;
     }
 
-    public List<ChatMessages> getChatMessages() {
-        return chatMessages;
-    }
-
-    public void setChatMessages(List<ChatMessages> chatMessages) {
-        this.chatMessages = chatMessages;
-    }
-
     @Override
     public String toString() {
-        return "InternetDetails{" +
+        return "ElectricityDetails{" +
                 "name='" + name + '\'' +
                 ", chatMessages=" + chatMessages +
                 '}';

@@ -12,4 +12,11 @@ public class Chat {
     // to denote the chat type Electricity, Internet, Mobile, Leasing.
     String type;
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

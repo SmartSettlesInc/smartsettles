@@ -1,17 +1,25 @@
 package com.smartsettles.repository;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Date;
 
 /**
  * Created by SantoshKompally on 3/6/17.
  */
+
+
+@Document(collection = "chatMessages")
 public class ChatMessages {
 
-    private int id;
+    @Id
+    private String id;
     private String from;
     private String message;
     private String to;
     private Date date;
+    private String type;
 
     public String getFrom() {
         return from;
@@ -42,16 +50,27 @@ public class ChatMessages {
     }
 
     public void setDate(Date date) {
-        this.date = date;
+
+        this.date = new Date();
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
         return "ChatMessages{" +
-                "from='" + from + '\'' +
+                "id='" + id + '\'' +
+                ", from='" + from + '\'' +
                 ", message='" + message + '\'' +
                 ", to='" + to + '\'' +
                 ", date=" + date +
+                ", type='" + type + '\'' +
                 '}';
     }
 }

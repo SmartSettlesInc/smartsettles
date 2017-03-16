@@ -11,16 +11,25 @@ import java.util.List;
 @Repository
 public class ApartmentDetails {
 
-    String apartmentName;
+    String name;
     Address apartmentAddress;
     List<ChatMessages> chatMessages;
 
-    public String getApartmentName() {
-        return apartmentName;
+    public ApartmentDetails() {
     }
 
-    public void setApartmentName(String apartmentName) {
-        this.apartmentName = apartmentName;
+    public ApartmentDetails(String name, Address apartmentAddress, List<ChatMessages> chatMessages) {
+        this.name = name;
+        this.apartmentAddress = apartmentAddress;
+        this.chatMessages = chatMessages;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Address getApartmentAddress() {
@@ -42,7 +51,7 @@ public class ApartmentDetails {
     @Override
     public String toString() {
         return "ApartmentDetails{" +
-                "apartmentName='" + apartmentName + '\'' +
+                "name='" + name + '\'' +
                 ", apartmentAddress=" + apartmentAddress +
                 ", chatMessages=" + chatMessages +
                 '}';

@@ -16,4 +16,14 @@ public class InternetChat extends Chat{
     public void setInternetDetails(List<InternetDetails> internetDetails) {
         this.internetDetails = internetDetails;
     }
+
+    @Override
+    public String getType() {
+        return super.getType();
+    }
+
+    @Override
+    public void setType(String type) {
+        super.setType(type);
+    }
 }
