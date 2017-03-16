@@ -5,6 +5,7 @@
 
 eventsApp.controller('EventController',function EventController($scope,chatservice){
 
+    var self = $scope;
 
     var input = {
         "type":"customer",
@@ -22,7 +23,6 @@ eventsApp.controller('EventController',function EventController($scope,chatservi
         $scope.totalData = data;
 
     },input,config);
-
 
     $scope.showDisplayPreferences = {
 
@@ -46,6 +46,7 @@ eventsApp.controller('EventController',function EventController($scope,chatservi
     $scope.currentlySelected = null;
     $scope.currentIndex = 0;
     $scope.chat = null;
+    $scope.currentName = null;
     $scope.displaySelectedChatType = function(index,name){
 
 
@@ -57,6 +58,7 @@ eventsApp.controller('EventController',function EventController($scope,chatservi
 
         $scope.data[name] = $scope.totalData[index][name];
         console.log($scope.totalData[index]);
+        $scope.currentName = name;
         $scope.currentIndex = index;
     }
 
@@ -71,7 +73,6 @@ eventsApp.controller('EventController',function EventController($scope,chatservi
     $scope.submitChat = function(event){
 
         if (event.which === 13) {
-            alert($scope.chatMessage);
 
             if ($scope.chat != null) {
 
@@ -84,9 +85,29 @@ eventsApp.controller('EventController',function EventController($scope,chatservi
                 }
 
 
+                console.log($scope.data[self.currentName]);
+                console.log($scope.chat);
+
                 chatservice.addChat(function(data){
 
                     console.log("The output is: " + data);
+
+                    if(data == true){
+
+                        $scope.chatMessage = "";
+                        for (var i =0; i <  self.data[self.currentName].length ; i++){
+
+                            if(self.data[$scope.currentName][i]['name'] == self.chat['name']){
+
+                                self.data[$scope.currentName][i]['chatMessages'].push(input);
+
+                            }
+
+                        }
+
+
+                    }
+
 
                 },input,config);
 
