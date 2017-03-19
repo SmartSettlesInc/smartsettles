@@ -7,7 +7,7 @@ eventsApp.controller('EventController',function EventController($scope,chatservi
 
     var self = $scope;
 
-    var input = {
+    $scope.input = {
         "type":"customer",
         "userId":"teja"
     }
@@ -18,12 +18,13 @@ eventsApp.controller('EventController',function EventController($scope,chatservi
         }
     }
 
-    chatservice.getChatData(function(data){
+    // chatservice.getChatData(function(data){
+    //
+    //     $scope.totalData = data;
+    //
+    // },self.input,config);
 
-        $scope.totalData = data;
-
-    },input,config);
-
+    $scope.totalData = chatservice.totalData;
     $scope.showDisplayPreferences = {
 
         'apartmentDetails' : false,
@@ -42,6 +43,13 @@ eventsApp.controller('EventController',function EventController($scope,chatservi
     };
 
     var types = ['apartments','internet','mobile','electricity'];
+
+    $scope.convertToDate = function(date){
+
+        console.log(new Date(date));
+
+
+    }
 
     $scope.currentlySelected = null;
     $scope.currentIndex = 0;
@@ -78,7 +86,7 @@ eventsApp.controller('EventController',function EventController($scope,chatservi
 
                 var input = {
 
-                    'from' : 'teja',
+                    'from' : self.input['userId'],
                     'to': $scope.chat['name'],
                     'message': $scope.chatMessage,
                     'type': types[$scope.currentIndex]
